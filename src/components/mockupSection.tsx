@@ -11,11 +11,9 @@ const MockupSection = ({ backgroundMode }: { backgroundMode: 'light' | 'dark' })
     <section
       className={`flex flex-col-reverse md:flex-row items-center p-8 ${backgroundClass} relative overflow-hidden`}
     >
-      {/* Decorative Lines */}
       <div className="absolute -left-10 top-10 w-1/3 h-1 bg-gradient-to-r from-blue-400 to-transparent opacity-50"></div>
       <div className="absolute -right-10 bottom-10 w-1/2 h-1 bg-gradient-to-l from-blue-400 to-transparent opacity-50"></div>
 
-      {/* Content */}
       <div className="md:w-1/2 p-4 flex flex-col justify-center relative z-10">
         <h2
           className={`text-5xl font-bold mb-4 ${textColorClass} drop-shadow-lg transition-transform duration-300 hover:translate-x-4`}
