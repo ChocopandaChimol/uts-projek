@@ -18,6 +18,10 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
 }
 
 @layer utilities {
@@ -43,7 +47,6 @@ body {
   background-color: #0000ff; 
   transition: background-color 0.3s ease;
 }
-
 
 .nav-link {
   position: relative;
@@ -101,7 +104,6 @@ body {
   transform: scale(1.05);
 }
 
-
 .hero-input::placeholder {
   color: #d1d5db; 
   transition: color 0.3s ease;
@@ -110,7 +112,6 @@ body {
 .hero-input:focus::placeholder {
   color: #1d4ed8; 
 }
-
 
 .hero-input {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -121,7 +122,6 @@ body {
   box-shadow: 0 0 5px rgba(29, 78, 216, 0.5); 
 }
 
-
 .carousel-container {
   display: flex;
   overflow: hidden;
@@ -130,12 +130,12 @@ body {
 .carousel-slide {
   display: flex;
   transition: transform 0.3s ease-in-out;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
-
 
 @media (min-width: 1024px) {
   .carousel-slide {
-    width: 300vw; 
+    width: 100vw; /* Adjust width to viewport width */
     display: flex;
     align-items: center;
   }
@@ -149,7 +149,7 @@ body {
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .carousel-slide {
-    width: 200vw; 
+    width: 100vw; /* Adjust width to viewport width */
     display: flex;
     align-items: center;
   }
