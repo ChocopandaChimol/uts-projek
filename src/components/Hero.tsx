@@ -10,10 +10,10 @@ const Hero = () => {
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="relative max-w-lg w-full px-4 sm:px-8">
-        <h1 className="text-3xl sm:text-5xl font-bold mb-4" style={{ fontFamily: 'Lexend Deca' }}>
+        <h1 className="text-3xl sm:text-5xl font-bold mb-4 text-white" style={{ fontFamily: 'Lexend Deca' }}>
           Instant collaboration for remote teams
         </h1>
-        <p className="text-base sm:text-lg mb-6" style={{ fontFamily: 'Lexend Deca' }}>
+        <p className="text-base sm:text-lg mb-6 text-white" style={{ fontFamily: 'Lexend Deca' }}>
           All-in-one place for your remote team to chat, collaborate and track project progress.
         </p>
         <div className="flex flex-col sm:flex-row gap-2">
