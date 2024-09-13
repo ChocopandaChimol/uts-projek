@@ -55,7 +55,7 @@ interface ReviewCarouselProps {
 const ReviewCarousel = ({ backgroundMode = 'light' }: ReviewCarouselProps) => {
   const [itemsVisible, setItemsVisible] = useState(1);
 
-  // Function to get the number of items to show based on window width
+  
   const getItemsToShow = () => {
     if (typeof window !== 'undefined') {
       if (window.innerWidth >= 1024) return 3;
@@ -65,7 +65,7 @@ const ReviewCarousel = ({ backgroundMode = 'light' }: ReviewCarouselProps) => {
   };
 
   useEffect(() => {
-    // Only execute if window is available
+
     if (typeof window !== 'undefined') {
       setItemsVisible(getItemsToShow());
 
