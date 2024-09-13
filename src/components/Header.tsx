@@ -6,33 +6,41 @@ import Image from 'next/image';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const toggleMenu = () => setIsOpen(prev => !prev);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (typeof window !== "undefined" && window.scrollY > 100) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+      if (typeof window !== "undefined") {
+        setIsScrolled(window.scrollY > 100);
+      }
+    };
+
+    const handleResize = () => {
+      if (typeof window !== "undefined") {
+        setIsMobile(window.innerWidth < 768); // Adjust width as needed
       }
     };
 
     if (typeof window !== "undefined") {
       window.addEventListener('scroll', handleScroll);
+      window.addEventListener('resize', handleResize);
+      handleResize(); // Initial check
     }
 
     return () => {
       if (typeof window !== "undefined") {
         window.removeEventListener('scroll', handleScroll);
+        window.removeEventListener('resize', handleResize);
       }
     };
   }, []);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 flex items-center justify-between p-4 transition-all duration-300 ${isScrolled ? 'bg-[rgb(28,28,51)] h-16 sm:h-20' : 'bg-transparent h-16 sm:h-20'} z-50`}
-      style={{ boxShadow: isScrolled ? '0 4px 6px rgba(0, 0, 0, 0.1)' : 'none' }}
+      className={`fixed top-0 left-0 right-0 flex items-center justify-between p-4 transition-all duration-300 ${isOpen || isScrolled || isMobile ? 'bg-[rgb(28,28,51)]' : 'bg-transparent'} h-16 sm:h-20 z-50`}
+      style={{ boxShadow: isScrolled && !isMobile ? '0 4px 6px rgba(0, 0, 0, 0.1)' : 'none' }}
     >
       <div className="flex items-center space-x-4">
         <Image src="/Logo.png" alt="Logo" width={60} height={60} />
