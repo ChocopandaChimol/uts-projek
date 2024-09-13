@@ -19,14 +19,14 @@ const Header = () => {
 
     const handleResize = () => {
       if (typeof window !== "undefined") {
-        setIsMobile(window.innerWidth < 768); // Adjust width as needed
+        setIsMobile(window.innerWidth < 768); 
       }
     };
 
     if (typeof window !== "undefined") {
       window.addEventListener('scroll', handleScroll);
       window.addEventListener('resize', handleResize);
-      handleResize(); // Initial check
+      handleResize(); 
     }
 
     return () => {
@@ -46,7 +46,7 @@ const Header = () => {
         <Image src="/Logo.png" alt="Logo" width={60} height={60} />
       </div>
 
-      {/* Hamburger Menu Button for Mobile */}
+      
       <div className="flex items-center sm:hidden">
         <button onClick={toggleMenu} className="text-white hover:text-gray-300 focus:outline-none">
           <svg
@@ -61,7 +61,6 @@ const Header = () => {
         </button>
       </div>
 
-      {/* Desktop Navigation */}
       <nav
         className={`hidden sm:flex sm:items-center sm:space-x-6 transition-transform duration-300 ${isOpen ? 'hidden' : 'flex'}`}
       >
@@ -85,7 +84,6 @@ const Header = () => {
         </button>
       </nav>
 
-      {/* Mobile Navigation */}
       {isOpen && (
         <div className="absolute top-16 left-0 w-full bg-[rgb(28,28,51)] sm:hidden z-40">
           <nav className="flex flex-col items-start p-4 space-y-4">
